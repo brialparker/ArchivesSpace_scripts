@@ -1,7 +1,7 @@
 #!/bin/bash
 
 for line in $(cat lit_ids2.json); do
-	uri = $(jq .'uri' <<<"$line" | sed 's/\"//g')
+	uri = $(jq ."uri" <<<"$line" | sed 's/\"//g')
 
 #be sure to replace with filename of json file 
 
