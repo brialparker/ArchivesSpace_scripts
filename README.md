@@ -1,6 +1,6 @@
-# ArchivesSpace_scripts
-some scripts developed to work with ArchivesSpace API, mostly hacked from something else I found, because you people are generous
-and kind and share your work for others like me to learn from.
+# ArchivesSpace_scripts for University of Maryland Special Collections and University Archives
+Some scripts developed to work with ArchivesSpace API, mostly hacked from something else I found, because you people are generous
+and kind and share your work for others like me to learn from. 
 
 **aspace_image_thumbnails.py**
 Takes a csv file with digital object URIs, handles (or other persistent URL) and IIIF ids and updates existing digital objects 
