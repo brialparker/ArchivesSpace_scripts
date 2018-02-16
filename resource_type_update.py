@@ -22,15 +22,15 @@ for resource_id in range(2500,2529):
             resource_title = resource_json['finding_aid_title']
             if "Papers" in resource_title:
                 resource_json["resource_type"] = "papers"
-       		    resource_update = requests.post(resource_uri,headers=headers,data=json.dumps(resource_json))
-     		    print str(resource_id) + ' updated! Papers'
+       		resource_update = requests.post(resource_uri,headers=headers,data=json.dumps(resource_json))
+     		print str(resource_id) + ' updated! Papers'
             elif "Records" in resource_title:
-        	    resource_json["resource_type"] = "records"
-        	    resource_update = requests.post(resource_uri,headers=headers,data=json.dumps(resource_json))
-       		    print str(resource_id) + ' updated! Records'
+		resource_json["resource_type"] = "records"
+		resource_update = requests.post(resource_uri,headers=headers,data=json.dumps(resource_json))
+       		print str(resource_id) + ' updated! Records'
             elif "Collection" in resource_title:
-			    resource_json["resource_type"] = "collection"
-			    resource_update = requests.post(resource_uri,headers=headers,data=json.dumps(resource_json))
-			    print str(resource_id) + ' updated! Collection'
-		   except:
-               continue  
+		resource_json["resource_type"] = "collection"
+		resource_update = requests.post(resource_uri,headers=headers,data=json.dumps(resource_json))
+		print str(resource_id) + ' updated! Collection'
+	    except:
+		continue  
