@@ -12,3 +12,6 @@ Takes a json file of location data (see aspace_sample_locations.json) and posts 
 **create_top_containers.py**
 Takes a csv of barcodes, box numbers, accession or resource uris, and location uris, and creates top containers, 
 associating them to the accession/resource and location in csv.
+
+**resource_type_update.py**
+This is my attempt to assign resource types to imported resources by checking for terms in the resource title.
