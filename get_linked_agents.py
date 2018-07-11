@@ -49,23 +49,18 @@ selected_records = []
 #get all records that are linked to a specific agent
 for i in range (0, len (records)):
     for j in range (0, len (records[i]['linked_agents'])):
-        #agent = resource_json["linked_agents"]
         uri = records[i]['uri']
         title = records[i]['title']
         needs_review = records[i]['linked_agents'][j].get('ref')
         if needs_review == '/agents/software/2':
             ag_json = requests.get(aspace_url + uri, headers=headers).json()
-            #f.writerow([uri]+[title]+[needs_review])
             selected_records.append(ag_json)
  
 #Now take the records found above and get any related agent and write to csv           
 for i in range (0, len (selected_records)):
     for j in range (0, len (selected_records[i]['linked_agents'])):
-        #agent = resource_json["linked_agents"]
         uri = selected_records[i]['uri']
-        #title = selected_records[i]['title']
         agents = selected_records[i]['linked_agents'][j].get('ref')
-       # f.writerow([uri]+[title]+[agents])
         agent_json = requests.get(aspace_url + agents, headers=headers).json()
         title = agent_json['title']
         f.writerow([agents]+[title]+[uri])
