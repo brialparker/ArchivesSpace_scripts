@@ -10,7 +10,8 @@ with a IIIF thumbnail image that links to the handle when clicked.
 Takes a json file of location data (see aspace_sample_locations.json) and posts new location objects to ArchivesSpace
 Note: I could not use the batch location creation native to ArchivesSpace, based on the numbering and how the feature treated numbers.
 It was all very weird, so this was my workaround. 
-Another note: I created the json from a csv that I loaded into OpenRefine and used the templating tool to create the json.
+Another note: I created the json from a csv that I loaded into OpenRefine and used the templating tool to create the json. I could have 
+probably just done this from the csv, but this was before I knew very much about python... 
 
 **create_top_containers.py**
 Takes a csv of barcodes, box numbers, accession or resource uris, and location uris, and creates top containers, 
