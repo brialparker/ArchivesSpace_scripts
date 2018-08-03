@@ -4,11 +4,6 @@ import datetime
 from datetime import timezone
 import dateutil.parser
 from asnake.aspace import ASpace
-from asnake.client import ASnakeClient
-
-client = ASnakeClient()
-client.authorize()
-repos = client.get("repositories").json()
                 
 aspace = ASpace()
 repo = aspace.repositories(2)
