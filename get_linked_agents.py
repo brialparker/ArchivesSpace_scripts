@@ -41,7 +41,7 @@ for acc_id in acc_ids:
     except:
         continue
 
-#open a cvs file for output
+#open a csv file for output
 f=csv.writer(open('new_agents.csv', 'wb'))
 f.writerow(['uri']+['name']+['related record'])
 
