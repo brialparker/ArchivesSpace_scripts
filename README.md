@@ -23,7 +23,7 @@ to the returned resources. I intend to use this locally for quality control, as 
 a dummy agent to trigger a review for authorities (since aspace has done some weird stuff on import with duplicates, etc.)
 
 **new_accessions.py**
-Retrieves accessions created over the past month for review/reporting by one of our collection managers. 
+Retrieves accessions created over the past month for review/reporting by one of our collection managers, using [ArchivesSnake](https://github.com/archivesspace-labs/ArchivesSnake). The script Uses authorization yml file described [here](https://github.com/archivesspace-labs/ArchivesSnake#configuration).
 
 **resource_type_update.py**
 This is my attempt to assign resource types to imported resources by checking for terms in the resource title.
