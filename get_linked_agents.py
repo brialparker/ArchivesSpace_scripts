@@ -7,7 +7,7 @@ username = 'admin'
 password = 'admin'
 repo_num = '2'
 
-#Do you authentication thing
+#Do your authentication thing
 auth = requests.post(aspace_url+'/users/'+username+'/login?password='+password).json()
 session = auth["session"]
 headers = {'X-ArchivesSpace-Session':session}
