@@ -12,7 +12,7 @@ from datetime import datetime
 # The barcode_csv will be your starting csv with the barcode of the container, the container number (e.g. '1' for Box 1),
 # and the uri of the accession/resource to be updated, and, optionally, the uri of an archivesspace location.
 
-barcode_csv = 'stage_test.csv'
+barcode_csv = raw_input('name of container file: ')
 
 # Modify your ArchivesSpace backend url, username, and password as necessary
 aspace_url = 'aspace_url'
@@ -32,7 +32,8 @@ with open(barcode_csv,'rU') as csvfile:
         indicator = row[1]
         # Grab the accessions URI from the csv
         ref_id = row[2]
-        location_ref = row[3]      
+        location_ref = row[3] 
+	#comment out location_ref if no location in csv
         accession_json = requests.get(aspace_url+ref_id,headers=headers).json()
 
 		#Start building the values for the new top container
@@ -52,6 +53,7 @@ with open(barcode_csv,'rU') as csvfile:
 
         # Build a new instance to add to the accession/resource object, linking to the new container
         acc_instance = {'instance_type':'mixed_materials', 'sub_container':{'jsonmodel_type':'sub_container','top_container':{'ref':top_container_uri}}}
+	#default is mixed_materials, but it's possible to add an additional column in the input csv
 
         # Append the new instance to the existing accession record's instances
         accession_json['instances'].append(acc_instance)
