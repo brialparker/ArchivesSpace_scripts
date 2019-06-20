@@ -23,14 +23,15 @@ with open(image_csv,'rb') as csvfile:
         do_id = row[0]
         handle = row[1]
         image_pid = row[2]
+        #image_pid is our local repository id that gets used in the IIIF url
         do_uri = aspace_url+'/repositories/'+repo_num+'/digital_objects/'+do_id
         do_json = requests.get(do_uri,headers=headers).json()
-        do_json['file_versions'][0]['file_uri'] = 'https://your.iiif.url/images/fedora2:'+image_pid+'/full/200,/0/default.jpg'
+        do_json['file_versions'][0]['file_uri'] = 'https://your.iiif.url/images/'+image_pid+'/full/200,/0/default.jpg'
         #can adjust thumbnail size (e.g. 200,) to suit your needs
-        do_json['file_versions'][0]['xlink_show_attribute'] = 'embed' #I think this is the thing that makes the thumbnail clickable
+        do_json['file_versions'][0]['xlink_show_attribute'] = 'embed' #This makes the thumbnail clickable
         new_file_version = {'file_uri':handle, 'jsonmodel_type':'file_version', 'published':True}
         do_json['file_versions'].append(new_file_version)
-         #the above two lines create the file version that has the link you want opened when the thumbnail is clicked
+        #the above two lines create the file version that has the link you want opened when the thumbnail is clicked
         do_update = requests.post(do_uri,headers=headers,data=json.dumps(do_json))
         print str(do_uri) + ' updated!'
 
